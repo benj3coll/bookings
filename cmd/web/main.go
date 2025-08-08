@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/benj3coll/bookings/pkg/config"
-	"github.com/benj3coll/bookings/pkg/handlers"
-	"github.com/benj3coll/bookings/pkg/render"
+	"github.com/benj3coll/bookings/internal/config"
+	"github.com/benj3coll/bookings/internal/handlers"
+	"github.com/benj3coll/bookings/internal/render"
 )
 
 const portNr = ":8080"
@@ -24,7 +24,7 @@ func main() {
 
 	createSession()
 
-	app.UseCache = true
+	app.UseCache = false
 	render.InitCache(&app)
 
 	repo := handlers.NewRepo(&app)
